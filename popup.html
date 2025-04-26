@@ -1,11 +1,30 @@
-
 <!DOCTYPE html>
 <html>
-<head><title>Note Taker</title></head>
+<head>
+  <title>Smart Notes Live</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-  <h2>📝 Smart Note-Taker</h2>
-  <button id="toggleBtn">Start Note</button>
-  <pre id="output"></pre>
+  <h1>📝 Smart Notes</h1>
+
+  <div id="controls">
+    <button id="start">Start Notes</button>
+    <button id="stop" disabled>Stop Notes</button>
+    <button id="view-notes">View Notes</button>
+    <p id="session-count"></p>
+
+    <div id="loader" style="display: none; color: #666; font-size: 12px;">Connecting to transcription service...</div>
+  </div>
+
+  <ul id="sessions"></ul>
+  <div id="recording-indicator" style="display:none;">
+    <span class="dot"></span> Recording...
+  </div>
+  
+  <div id="output"></div>
+  <div id="transcriptionCompleted" style="display: none;">Transcription Completed</div>
+
+
   <script src="popup.js"></script>
 </body>
 </html>
