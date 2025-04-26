@@ -1,23 +1,25 @@
-
 {
   "manifest_version": 3,
-  "name": "Smart Note-Taker",
-  "description": "Transcribe and take notes while watching any video.",
+  "name": "Smart Note Taker",
+  "description": "Transcribe audio from videos in real-time.",
   "version": "1.0",
-  "permissions": ["scripting", "activeTab", "tabCapture"],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "128": "icons/icon128.png"
-    }
+  "permissions": [
+    "tabs",
+    "tabCapture",
+    "activeTab",
+    "scripting"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://api.gladia.io wss://api.gladia.io"
   },
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
   ]
 }
