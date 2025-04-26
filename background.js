@@ -1,18 +1,15 @@
+// background.js
 
-let stream;
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("Extension installed and background ready.");
+});
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "start_capture") {
-    chrome.tabCapture.capture({ audio: true, video: false }, function (s) {
-      stream = s;
-      console.log("Audio stream started.");
-    });
-  }
+// (Optional) Handle messages if needed in the future
+chrome.runtime.onConnect.addListener((port) => {
+  console.log("Background connected to", port.name);
 
-  if (request.action === "stop_capture") {
-    if (stream) {
-      stream.getTracks().forEach(track => track.stop());
-      console.log("Audio stream stopped.");
-    }
-  }
+  port.onMessage.addListener((msg) => {
+    console.log("Message received in background:", msg);
+    // You can handle future logic here if needed
+  });
 });
