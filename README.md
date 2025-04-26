@@ -42,3 +42,36 @@ smart-note-taker/
 │   └── index.js
 ├── README.md
 └── package.json
+Install dependencies (if using a framework like React)
+bash
+Copy
+Edit
+npm install
+Run the project locally
+bash
+Copy
+Edit
+npm start
+or simply open index.html if it's a vanilla JavaScript project.
+
+Folder Structure
+pgsql
+Copy
+Edit
+smart-note-taker/
+├── public/ (optional)
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.js
+│   └── index.js
+├── README.md
+└── package.json
+(Adjust if you're using plain JS, React, or anything else.)
+
+Contributing
+Contributions are welcome!
+Feel free to fork the repository, make changes, and submit a pull request.
+
+License
+This project is open-source and available under the MIT License.
