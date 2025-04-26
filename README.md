@@ -11,6 +11,11 @@ Whether it's ideas, to-do lists, or important information — Smart Note Taker m
 - ☁️ (Optional) Save notes to local storage or sync to the cloud
 - 🌓 Light and Dark mode support
 
+## Powered By
+
+- **Gladia**: We use [Gladia](https://gladia.io/) for converting audio into accurate text transcription.  
+  🆓 Users get **20 hours of free transcription credit per month** when using Gladia!
+
 ## Tech Stack
 
 - HTML5
@@ -26,3 +31,14 @@ Whether it's ideas, to-do lists, or important information — Smart Note Taker m
 ```bash
 git clone https://github.com/TanishaKothari-45/smart-note-taker.git
 cd smart-note-taker
+
+#### Folder Structure
+smart-note-taker/
+├── public/ (optional)
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.js
+│   └── index.js
+├── README.md
+└── package.json
