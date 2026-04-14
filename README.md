@@ -1,77 +1,76 @@
-# Smart Note Taker 📝
+# Smart Note Taker
 
-Smart Note Taker is a simple and efficient app designed to help users quickly jot down, organize, and manage their notes.  
-Whether it's ideas, to-do lists, or important information — Smart Note Taker makes sure nothing gets forgotten.
+> A Chrome extension that takes notes from any video playing in your browser — on your terms.
 
-## Features
+Hit record, let it run, hit stop. Only what you chose to capture gets transcribed, summarised, and turned into clean structured notes. No fluff, no full-video dumps.
 
-- 🖊️ Create and edit notes easily
-- 🗂️ Organize notes with categories or tags
-- 🔍 Search through notes instantly
-- ☁️ (Optional) Save notes to local storage or sync to the cloud
-- 🌓 Light and Dark mode support
+---
 
-## Powered By
+## How it works
 
-- **Gladia**: We use [Gladia](https://gladia.io/) for converting audio into accurate text transcription.  
-  🆓 Users get **20 hours of free transcription credit per month** when using Gladia!
+```
+Start recording → Audio captured from active Chrome tab
+      ↓
+Stop recording → Gladia transcribes only the captured segment  
+      ↓
+LLM summarisation → Raw transcript → layman-friendly rewrite
+      ↓
+(Optional) Related info fetch → context enriched automatically
+      ↓
+Structured personalised note saved locally via IndexedDB
+```
+
+---
+
+## What makes this useful
+
+- **You control the content** — start/stop mid-video to capture only what matters, skip the rest
+- **Works on any video** — YouTube, Loom, course platforms, anything playing in Chrome
+- **Personalised output** — LLM rewrites the transcript in plain language, not verbatim notes
+- **Optional enrichment** — fetches related information to add context to your note automatically
+- **Fully offline after generation** — notes persisted in IndexedDB, no backend, no account needed
+- **20 hours free/month** — powered by Gladia's transcription API, free tier included
+
+---
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla / React if applicable)
-- (Optional) Backend: Node.js / Express
-- (Optional) Database: MongoDB / Firebase
+| Layer | Technology |
+|---|---|
+| Extension UI | React popup |
+| Transcription | Gladia API |
+| Summarisation | LLM API |
+| Storage | IndexedDB (local, offline-first) |
+| Platform | Chrome Extension (Manifest V3) |
+
+---
 
 ## Getting Started
 
-### Clone the repository
+### Install locally
 
 ```bash
 git clone https://github.com/TanishaKothari-45/smart-note-taker.git
 cd smart-note-taker
-
-#### Folder Structure
-smart-note-taker/
-├── public/ (optional)
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.js
-│   └── index.js
-├── README.md
-└── package.json
-Install dependencies (if using a framework like React)
-bash
-Copy
-Edit
 npm install
-Run the project locally
-bash
-Copy
-Edit
-npm start
-or simply open index.html if it's a vanilla JavaScript project.
+npm run build
+```
 
-Folder Structure
-pgsql
-Copy
-Edit
-smart-note-taker/
-├── public/ (optional)
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.js
-│   └── index.js
-├── README.md
-└── package.json
-(Adjust if you're using plain JS, React, or anything else.)
+Then in Chrome:
+1. Go to `chrome://extensions`
+2. Enable **Developer mode**
+3. Click **Load unpacked** → select the `build/` folder
 
-Contributing
-Contributions are welcome!
-Feel free to fork the repository, make changes, and submit a pull request.
+### Environment variables
 
-License
-This project is open-source and available under the MIT License.
+Create a `.env` file:
+```env
+REACT_APP_GLADIA_API_KEY=your_gladia_key
+REACT_APP_LLM_API_KEY=your_llm_key
+```
+
+---
+
+## License
+
+MIT
